@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleVendas.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -45,6 +46,26 @@ namespace ControleVendas.VIEW
         private void label8_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            
+            cliente.Bairro = txtBairro.Text;
+            cliente.Celular = txtCelular.Text;
+            cliente.Cep = txtCep.Text;
+            cliente.Cidade = txtCidade.Text;
+            cliente.Codigo = int.Parse(txtCodigo.Text);
+            cliente.Complemento = txtComplemento.Text;
+            cliente.Cpf = txtCpf.Text;
+            cliente.Email = txtEmail.Text;
+            cliente.Endereco = txtEndereco.Text;
+            cliente.Estado = cbUf.Text;            
+            cliente.Nome = txtNome.Text;
+            cliente.Numero = int.Parse(txtNumero.Text);
+            cliente.Rg = txtRg.Text;
+            cliente.Telefone = txtTelefone.Text;
         }
     }
 }
