@@ -70,6 +70,7 @@ namespace ControleVendas.VIEW
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnPesquisarCep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -112,6 +113,7 @@ namespace ControleVendas.VIEW
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnPesquisarCep);
             this.tabPage1.Controls.Add(this.cbUf);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.txtCidade);
@@ -247,7 +249,7 @@ namespace ControleVendas.VIEW
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(577, 171);
+            this.txtNumero.Location = new System.Drawing.Point(712, 208);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(100, 22);
             this.txtNumero.TabIndex = 19;
@@ -256,7 +258,7 @@ namespace ControleVendas.VIEW
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label11.Location = new System.Drawing.Point(503, 177);
+            this.label11.Location = new System.Drawing.Point(647, 214);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 16);
             this.label11.TabIndex = 18;
@@ -264,7 +266,7 @@ namespace ControleVendas.VIEW
             // 
             // txtEndereco
             // 
-            this.txtEndereco.Location = new System.Drawing.Point(260, 171);
+            this.txtEndereco.Location = new System.Drawing.Point(420, 170);
             this.txtEndereco.Name = "txtEndereco";
             this.txtEndereco.Size = new System.Drawing.Size(221, 22);
             this.txtEndereco.TabIndex = 17;
@@ -273,7 +275,7 @@ namespace ControleVendas.VIEW
             // 
             this.label10.AutoSize = true;
             this.label10.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label10.Location = new System.Drawing.Point(184, 177);
+            this.label10.Location = new System.Drawing.Point(344, 176);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(70, 16);
             this.label10.TabIndex = 16;
@@ -284,7 +286,7 @@ namespace ControleVendas.VIEW
             this.txtCep.Location = new System.Drawing.Point(83, 171);
             this.txtCep.Mask = "00000-999";
             this.txtCep.Name = "txtCep";
-            this.txtCep.Size = new System.Drawing.Size(82, 22);
+            this.txtCep.Size = new System.Drawing.Size(74, 22);
             this.txtCep.TabIndex = 15;
             // 
             // label9
@@ -321,7 +323,7 @@ namespace ControleVendas.VIEW
             this.txtTelefone.Location = new System.Drawing.Point(82, 137);
             this.txtTelefone.Mask = "(99) 0000-0000";
             this.txtTelefone.Name = "txtTelefone";
-            this.txtTelefone.Size = new System.Drawing.Size(163, 22);
+            this.txtTelefone.Size = new System.Drawing.Size(101, 22);
             this.txtTelefone.TabIndex = 11;
             // 
             // label7
@@ -376,7 +378,7 @@ namespace ControleVendas.VIEW
             // 
             this.txtEmail.Location = new System.Drawing.Point(82, 101);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(161, 22);
+            this.txtEmail.Size = new System.Drawing.Size(221, 22);
             this.txtEmail.TabIndex = 5;
             // 
             // label4
@@ -411,7 +413,7 @@ namespace ControleVendas.VIEW
             // 
             this.txtCodigo.Location = new System.Drawing.Point(82, 25);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 22);
+            this.txtCodigo.Size = new System.Drawing.Size(221, 22);
             this.txtCodigo.TabIndex = 1;
             // 
             // label2
@@ -533,6 +535,19 @@ namespace ControleVendas.VIEW
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
+            // btnPesquisarCep
+            // 
+            this.btnPesquisarCep.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnPesquisarCep.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarCep.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnPesquisarCep.Location = new System.Drawing.Point(188, 163);
+            this.btnPesquisarCep.Name = "btnPesquisarCep";
+            this.btnPesquisarCep.Size = new System.Drawing.Size(115, 35);
+            this.btnPesquisarCep.TabIndex = 32;
+            this.btnPesquisarCep.Text = "Pesquisar";
+            this.btnPesquisarCep.UseVisualStyleBackColor = false;
+            this.btnPesquisarCep.Click += new System.EventHandler(this.btnPesquisarCep_Click);
+            // 
             // FrmClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -603,5 +618,6 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnPesquisarCep;
     }
 }

@@ -168,5 +168,34 @@ namespace ControleVendas.VIEW
             tabelaCliente.DataSource = dao.ListarClientesPorNome(nome);           
 
         }
+
+        private void btnPesquisarCep_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string cep = txtCep.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+
+                DataSet dados = new DataSet();
+
+                dados.ReadXml(xml);
+
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtBairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtCidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtComplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                cbUf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtEndereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+
+
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Endereço não encontrado por favor digite manualmente.");
+            }
+        }
     }
 }
