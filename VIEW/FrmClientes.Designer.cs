@@ -448,6 +448,7 @@ namespace ControleVendas.VIEW
             this.tabelaCliente.ReadOnly = true;
             this.tabelaCliente.Size = new System.Drawing.Size(878, 254);
             this.tabelaCliente.TabIndex = 33;
+            this.tabelaCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaCliente_CellClick);
             // 
             // btnPesquisar
             // 
