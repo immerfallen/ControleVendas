@@ -28,7 +28,7 @@ namespace ControleVendas.DAO
             {
                 string sql = @"insert into tb_funcionarios 
                               (nome,rg,cpf,email, senha, cargo, nivel_acesso, telefone,celular,cep,endereco,numero,complemento,bairro,cidade,estado) 
-                              values (@nome,@rg,@cpf,@email, @senha,@cargo,@nivel_acesso @telefone,@celular,@cep,@endereco,@numero,@complemento,@bairro,@cidade,@estado)";
+                              values (@nome, @rg, @cpf, @email, @senha, @cargo, @nivel_acesso, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado)";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
                 executaCmd.Parameters.AddWithValue("@nome", funcionario.Nome);
@@ -54,7 +54,7 @@ namespace ControleVendas.DAO
                 MessageBox.Show("Funcionário cadastrado com sucesso");
                 conexao.Close();
 
-                new Helpers().LimparTela(FrmFuncionarios.ActiveForm);
+                
             }
             catch (Exception ex)
             {
