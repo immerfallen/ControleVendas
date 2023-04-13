@@ -1,4 +1,5 @@
-﻿using ControleVendas.MODEL;
+﻿using ControleVendas.DAO;
+using ControleVendas.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,8 +56,7 @@ namespace ControleVendas.VIEW
             cliente.Bairro = txtBairro.Text;
             cliente.Celular = txtCelular.Text;
             cliente.Cep = txtCep.Text;
-            cliente.Cidade = txtCidade.Text;
-            cliente.Codigo = int.Parse(txtCodigo.Text);
+            cliente.Cidade = txtCidade.Text;            
             cliente.Complemento = txtComplemento.Text;
             cliente.Cpf = txtCpf.Text;
             cliente.Email = txtEmail.Text;
@@ -66,6 +66,11 @@ namespace ControleVendas.VIEW
             cliente.Numero = int.Parse(txtNumero.Text);
             cliente.Rg = txtRg.Text;
             cliente.Telefone = txtTelefone.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.CadastrarCliente(cliente);
+
+
         }
     }
 }
