@@ -41,7 +41,7 @@ namespace ControleVendas.VIEW
 
         private void button1_MouseClick(object sender, MouseEventArgs e)
         {
-            
+
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -52,16 +52,16 @@ namespace ControleVendas.VIEW
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             Cliente cliente = new Cliente();
-            
+
             cliente.Bairro = txtBairro.Text;
             cliente.Celular = txtCelular.Text;
             cliente.Cep = txtCep.Text;
-            cliente.Cidade = txtCidade.Text;            
+            cliente.Cidade = txtCidade.Text;
             cliente.Complemento = txtComplemento.Text;
             cliente.Cpf = txtCpf.Text;
             cliente.Email = txtEmail.Text;
             cliente.Endereco = txtEndereco.Text;
-            cliente.Estado = cbUf.Text;            
+            cliente.Estado = cbUf.Text;
             cliente.Nome = txtNome.Text;
             cliente.Numero = int.Parse(txtNumero.Text);
             cliente.Rg = txtRg.Text;
@@ -78,7 +78,7 @@ namespace ControleVendas.VIEW
             tabelaCliente.DefaultCellStyle.ForeColor = Color.Black;
 
             ClienteDAO dao = new ClienteDAO();
-            tabelaCliente.DataSource = dao.ListarClientes();            
+            tabelaCliente.DataSource = dao.ListarClientes();
 
         }
 
@@ -148,7 +148,25 @@ namespace ControleVendas.VIEW
 
             ClienteDAO dao = new ClienteDAO();
 
-            tabelaCliente.DataSource = dao.ListarClientesPorNome(nome);
+            tabelaCliente.DataSource = dao.BuscarClientePorNome(nome);
+
+            if (tabelaCliente.Rows.Count == 0)
+            {
+                tabelaCliente.DataSource = dao.ListarClientes();
+            }
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string nome = "%" + txtPesquisa.Text + "%";
+            ClienteDAO dao = new ClienteDAO();
+            tabelaCliente.DataSource = dao.ListarClientesPorNome(nome);           
+
         }
     }
 }

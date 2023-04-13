@@ -170,13 +170,50 @@ namespace ControleVendas.DAO
 
         #region BuscarClientePorNome
 
-        public DataTable ListarClientesPorNome(string nome)
+        public DataTable BuscarClientePorNome(string nome)
         {
             try
             {
                 DataTable tabelaCliente = new DataTable();
 
                 string sql = "select * from tb_clientes where nome = @nome ";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+
+                da.Fill(tabelaCliente);
+
+                conexao.Close();
+
+                return tabelaCliente;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region ListarClientesPorNome
+
+        public DataTable ListarClientesPorNome(string nome)
+        {
+            try
+            {
+                DataTable tabelaCliente = new DataTable();
+
+                string sql = "select * from tb_clientes where nome like @nome ";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
