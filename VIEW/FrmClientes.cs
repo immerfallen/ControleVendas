@@ -72,5 +72,11 @@ namespace ControleVendas.VIEW
 
 
         }
+
+        private void FrmClientes_Load(object sender, EventArgs e)
+        {
+            ClienteDAO dao = new ClienteDAO();
+            tabelaCliente.DataSource = dao.ListarClientes();
+        }
     }
 }

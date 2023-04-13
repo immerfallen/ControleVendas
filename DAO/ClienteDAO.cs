@@ -3,6 +3,7 @@ using ControleVendas.MODEL;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +58,39 @@ namespace ControleVendas.DAO
             }
 
         }
+        #endregion
+
+        #region ListarClientes
+
+        public DataTable ListarClientes()
+        {
+            try
+            {
+                DataTable tabelaCliente = new DataTable();
+
+                string sql = "select * from tb_clientes";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql,conexao);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+
+                da.Fill(tabelaCliente);
+
+                return tabelaCliente;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
+                return null;
+            }
+        }
+
         #endregion
 
 
