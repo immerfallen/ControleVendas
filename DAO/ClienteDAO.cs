@@ -1,5 +1,6 @@
 ﻿using ControleVendas.CONEXAO;
 using ControleVendas.MODEL;
+using ControleVendas.VIEW;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,8 @@ namespace ControleVendas.DAO
 
                 MessageBox.Show("Cliente cadastrado com sucesso");
                 conexao.Close();
+
+                new Helpers().LimparTela(FrmClientes.ActiveForm);
 
             }
             catch (Exception erro)

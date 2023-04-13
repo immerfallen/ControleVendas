@@ -197,5 +197,10 @@ namespace ControleVendas.VIEW
                 MessageBox.Show("Endereço não encontrado por favor digite manualmente.");
             }
         }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
+        }
     }
 }

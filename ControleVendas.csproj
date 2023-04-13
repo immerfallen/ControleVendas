@@ -84,6 +84,7 @@
     <Compile Include="CONEXAO\ConnectionFactory.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="MODEL\Cliente.cs" />
+    <Compile Include="MODEL\Helpers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VIEW\FrmClientes.cs">
