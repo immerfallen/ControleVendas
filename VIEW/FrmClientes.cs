@@ -75,6 +75,8 @@ namespace ControleVendas.VIEW
 
         private void FrmClientes_Load(object sender, EventArgs e)
         {
+            tabelaCliente.DefaultCellStyle.ForeColor = Color.Black;
+
             ClienteDAO dao = new ClienteDAO();
             tabelaCliente.DataSource = dao.ListarClientes();
         }

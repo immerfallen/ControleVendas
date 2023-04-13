@@ -70,7 +70,7 @@ namespace ControleVendas.DAO
 
                 string sql = "select * from tb_clientes";
 
-                MySqlCommand executaCmd = new MySqlCommand(sql,conexao);
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
                 conexao.Open();
 
@@ -93,6 +93,73 @@ namespace ControleVendas.DAO
 
         #endregion
 
+        #region AlterarCliente
+
+        public void AlterarCliente(Cliente cliente)
+        {
+            try
+            {
+                string sql = @"update tb_clientes set
+                              nome = @nome,rg = @rg,cpf = @cpf,email= @email,telefone = @telefone,celular = @celular,cep = @cep,
+                              endereco = @endereco,numero = @numero,complemento = @complemento,bairro = @bairro,cidade = @cidade,estado = @estado where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", cliente.Nome);
+                executaCmd.Parameters.AddWithValue("@rg", cliente.Rg);
+                executaCmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                executaCmd.Parameters.AddWithValue("@email", cliente.Email);
+                executaCmd.Parameters.AddWithValue("@telefone", cliente.Telefone);
+                executaCmd.Parameters.AddWithValue("@celular", cliente.Celular);
+                executaCmd.Parameters.AddWithValue("@cep", cliente.Cep);
+                executaCmd.Parameters.AddWithValue("@endereco", cliente.Endereco);
+                executaCmd.Parameters.AddWithValue("@numero", cliente.Numero);
+                executaCmd.Parameters.AddWithValue("@complemento", cliente.Complemento);
+                executaCmd.Parameters.AddWithValue("@bairro", cliente.Bairro);
+                executaCmd.Parameters.AddWithValue("@cidade", cliente.Cidade);
+                executaCmd.Parameters.AddWithValue("@estado", cliente.Estado);
+                executaCmd.Parameters.AddWithValue("@id", cliente.Codigo);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente alterado com sucesso");
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro.Message);
+            }           
+        }
+
+        #endregion
+
+        #region Excluircliente
+
+        public void ExcluirCliente(Cliente cliente)
+        {
+            try
+            {
+                string sql = @"delete from tb_clientes where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                
+                executaCmd.Parameters.AddWithValue("@id", cliente.Codigo);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Cliente excluído com sucesso");
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro.Message);
+            }
+        }
+
+        #endregion
 
     }
 }
