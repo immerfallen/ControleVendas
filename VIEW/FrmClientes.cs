@@ -141,5 +141,14 @@ namespace ControleVendas.VIEW
 
             tabelaCliente.DataSource = dao.ListarClientes();
         }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string nome = txtPesquisa.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+
+            tabelaCliente.DataSource = dao.ListarClientesPorNome(nome);
+        }
     }
 }
