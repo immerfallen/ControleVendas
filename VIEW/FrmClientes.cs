@@ -70,7 +70,7 @@ namespace ControleVendas.VIEW
             ClienteDAO dao = new ClienteDAO();
             dao.CadastrarCliente(cliente);
 
-
+            tabelaCliente.DataSource = dao.ListarClientes();
         }
 
         private void FrmClientes_Load(object sender, EventArgs e)
@@ -78,7 +78,8 @@ namespace ControleVendas.VIEW
             tabelaCliente.DefaultCellStyle.ForeColor = Color.Black;
 
             ClienteDAO dao = new ClienteDAO();
-            tabelaCliente.DataSource = dao.ListarClientes();
+            tabelaCliente.DataSource = dao.ListarClientes();            
+
         }
 
         private void tabelaCliente_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -98,7 +99,47 @@ namespace ControleVendas.VIEW
             txtCidade.Text = tabelaCliente.CurrentRow.Cells[12].Value.ToString();
             cbUf.Text = tabelaCliente.CurrentRow.Cells[13].Value.ToString();
 
+            tabClientes.SelectedTab = tabPage1;
 
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+
+            cliente.Codigo = int.Parse(txtCodigo.Text);
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.ExcluirCliente(cliente);
+
+            tabelaCliente.DataSource = dao.ListarClientes();
+
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+
+            cliente.Bairro = txtBairro.Text;
+            cliente.Celular = txtCelular.Text;
+            cliente.Cep = txtCep.Text;
+            cliente.Cidade = txtCidade.Text;
+            cliente.Complemento = txtComplemento.Text;
+            cliente.Cpf = txtCpf.Text;
+            cliente.Email = txtEmail.Text;
+            cliente.Endereco = txtEndereco.Text;
+            cliente.Estado = cbUf.Text;
+            cliente.Nome = txtNome.Text;
+            cliente.Numero = int.Parse(txtNumero.Text);
+            cliente.Rg = txtRg.Text;
+            cliente.Telefone = txtTelefone.Text;
+            cliente.Codigo = int.Parse(txtCodigo.Text);
+
+            ClienteDAO dao = new ClienteDAO();
+            dao.AlterarCliente(cliente);
+
+            tabelaCliente.DataSource = dao.ListarClientes();
         }
     }
 }

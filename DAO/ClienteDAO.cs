@@ -49,6 +49,7 @@ namespace ControleVendas.DAO
                 executaCmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente cadastrado com sucesso");
+                conexao.Close();
 
             }
             catch (Exception erro)
@@ -80,7 +81,9 @@ namespace ControleVendas.DAO
 
                 da.Fill(tabelaCliente);
 
-                return tabelaCliente;
+                conexao.Close();
+
+                return tabelaCliente;               
 
             }
             catch (Exception ex)
@@ -124,6 +127,8 @@ namespace ControleVendas.DAO
 
                 MessageBox.Show("Cliente alterado com sucesso");
 
+                conexao.Close();
+
             }
             catch (Exception erro)
             {
@@ -150,6 +155,8 @@ namespace ControleVendas.DAO
                 executaCmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente excluído com sucesso");
+
+                conexao.Close();
 
             }
             catch (Exception erro)
