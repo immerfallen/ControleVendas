@@ -55,6 +55,8 @@ namespace ControleVendas.DAO
                 MessageBox.Show("Funcionário cadastrado com sucesso");
                 conexao.Close();
 
+               
+
                 
             }
             catch (Exception ex)
@@ -176,5 +178,82 @@ namespace ControleVendas.DAO
         }
 
         #endregion
+
+        #region BuscarFuncionarioPorNome
+
+        public DataTable BuscarFuncionarioPorNome(string nome)
+        {
+            try
+            {
+                DataTable tabelaFuncionario = new DataTable();
+
+                string sql = "select * from tb_funcionarios where nome = @nome ";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+
+                da.Fill(tabelaFuncionario);
+
+                conexao.Close();
+
+                return tabelaFuncionario;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region ListarFuncionariosPorNome
+
+        public DataTable ListarClientesPorNome(string nome)
+        {
+            try
+            {
+                DataTable tabelaFuncionario = new DataTable();
+
+                string sql = "select * from tb_funcionarios where nome like @nome ";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("@nome", nome);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+
+                da.Fill(tabelaFuncionario);
+
+                conexao.Close();
+
+                return tabelaFuncionario;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
+                return null;
+            }
+        }
+
+        #endregion
+
+
+
     }
 }

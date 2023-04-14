@@ -31,7 +31,7 @@ namespace ControleVendas.VIEW
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabClientes = new System.Windows.Forms.TabControl();
+            this.tabFuncionarios = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -78,7 +78,7 @@ namespace ControleVendas.VIEW
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.tabClientes.SuspendLayout();
+            this.tabFuncionarios.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaFuncionario)).BeginInit();
@@ -106,17 +106,17 @@ namespace ControleVendas.VIEW
             this.panel1.Size = new System.Drawing.Size(1236, 167);
             this.panel1.TabIndex = 1;
             // 
-            // tabClientes
+            // tabFuncionarios
             // 
-            this.tabClientes.Controls.Add(this.tabPage1);
-            this.tabClientes.Controls.Add(this.tabPage2);
-            this.tabClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabClientes.Location = new System.Drawing.Point(12, 175);
-            this.tabClientes.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabClientes.Name = "tabClientes";
-            this.tabClientes.SelectedIndex = 0;
-            this.tabClientes.Size = new System.Drawing.Size(1192, 441);
-            this.tabClientes.TabIndex = 3;
+            this.tabFuncionarios.Controls.Add(this.tabPage1);
+            this.tabFuncionarios.Controls.Add(this.tabPage2);
+            this.tabFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabFuncionarios.Location = new System.Drawing.Point(12, 175);
+            this.tabFuncionarios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabFuncionarios.Name = "tabFuncionarios";
+            this.tabFuncionarios.SelectedIndex = 0;
+            this.tabFuncionarios.Size = new System.Drawing.Size(1192, 441);
+            this.tabFuncionarios.TabIndex = 3;
             // 
             // tabPage1
             // 
@@ -264,6 +264,7 @@ namespace ControleVendas.VIEW
             this.btnPesquisarCep.TabIndex = 32;
             this.btnPesquisarCep.Text = "Pesquisar";
             this.btnPesquisarCep.UseVisualStyleBackColor = false;
+            this.btnPesquisarCep.Click += new System.EventHandler(this.btnPesquisarCep_Click);
             // 
             // cbCargo
             // 
@@ -553,6 +554,7 @@ namespace ControleVendas.VIEW
             this.tabelaFuncionario.ReadOnly = true;
             this.tabelaFuncionario.Size = new System.Drawing.Size(1169, 313);
             this.tabelaFuncionario.TabIndex = 33;
+            this.tabelaFuncionario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaFuncionario_CellClick);
             // 
             // btnPesquisar
             // 
@@ -566,6 +568,7 @@ namespace ControleVendas.VIEW
             this.btnPesquisar.TabIndex = 32;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -574,6 +577,7 @@ namespace ControleVendas.VIEW
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 22);
             this.txtPesquisa.TabIndex = 5;
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
             // 
             // label16
             // 
@@ -650,7 +654,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnNovo);
-            this.Controls.Add(this.tabClientes);
+            this.Controls.Add(this.tabFuncionarios);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -660,7 +664,7 @@ namespace ControleVendas.VIEW
             this.Load += new System.EventHandler(this.FrmFuncionarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabClientes.ResumeLayout(false);
+            this.tabFuncionarios.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -674,7 +678,7 @@ namespace ControleVendas.VIEW
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TabControl tabClientes;
+        private System.Windows.Forms.TabControl tabFuncionarios;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnPesquisarCep;
         private System.Windows.Forms.ComboBox cbCargo;
