@@ -82,9 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CONEXAO\ConnectionFactory.cs" />
+    <Compile Include="DAO\FornecedorDAO.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
     <Compile Include="DAO\FuncionarioDAO.cs" />
     <Compile Include="MODEL\Cliente.cs" />
+    <Compile Include="MODEL\Fornecedor.cs" />
     <Compile Include="MODEL\Funcionario.cs" />
     <Compile Include="MODEL\Helpers.cs" />
     <Compile Include="Program.cs" />
@@ -94,6 +96,12 @@
     </Compile>
     <Compile Include="VIEW\FrmClientes.Designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\FrmFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\FrmFornecedores.Designer.cs">
+      <DependentUpon>FrmFornecedores.cs</DependentUpon>
     </Compile>
     <Compile Include="VIEW\FrmFuncionarios.cs">
       <SubType>Form</SubType>
@@ -112,6 +120,9 @@
     </Compile>
     <EmbeddedResource Include="VIEW\FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\FrmFornecedores.resx">
+      <DependentUpon>FrmFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\FrmFuncionarios.resx">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
