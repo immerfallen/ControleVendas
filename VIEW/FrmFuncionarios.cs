@@ -53,12 +53,42 @@ namespace ControleVendas.VIEW
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
+            Funcionario funcionario = new Funcionario();
 
+            funcionario.Codigo = int.Parse(txtCodigo.Text);
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.ExcluirFuncionario(funcionario);
+
+            tabelaFuncionario.DataSource = dao.ListarFuncionarios();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            Funcionario funcionario = new Funcionario();
 
+            funcionario.Bairro = txtBairro.Text;
+            funcionario.Celular = txtCelular.Text;
+            funcionario.Cep = txtCep.Text;
+            funcionario.Cidade = txtCidade.Text;
+            funcionario.Complemento = txtComplemento.Text;
+            funcionario.Cpf = txtCpf.Text;
+            funcionario.Email = txtEmail.Text;
+            funcionario.Endereco = txtEndereco.Text;
+            funcionario.Estado = cbUf.Text;
+            funcionario.Nome = txtNome.Text;
+            funcionario.Numero = int.Parse(txtNumero.Text);
+            funcionario.Rg = txtRg.Text;
+            funcionario.Telefone = txtTelefone.Text;
+            funcionario.Codigo = int.Parse(txtCodigo.Text);
+            funcionario.Senha = txtSenha.Text;
+            funcionario.Cargo = cbCargo.Text;
+            funcionario.NivelAcesso = cbNivel.Text;
+
+            FuncionarioDAO dao = new FuncionarioDAO();
+            dao.AlterarFuncionario(funcionario);
+
+            tabelaFuncionario.DataSource = dao.ListarFuncionarios();
         }
 
         private void FrmFuncionarios_Load(object sender, EventArgs e)

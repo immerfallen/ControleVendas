@@ -101,5 +101,80 @@ namespace ControleVendas.DAO
         }
 
         #endregion
+
+        #region AlterarFuncionario
+
+        public void AlterarFuncionario(Funcionario funcionario)
+        {
+            try
+            {
+                string sql = @"update tb_funcionarios set
+                              nome = @nome,rg = @rg,cpf = @cpf,email= @email, senha = @senha, cargo = @cargo, nivel_acesso = @nivel_acesso, telefone = @telefone,celular = @celular,cep = @cep,
+                              endereco = @endereco,numero = @numero,complemento = @complemento,bairro = @bairro,cidade = @cidade,estado = @estado where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@nome", funcionario.Nome);
+                executaCmd.Parameters.AddWithValue("@rg", funcionario.Rg);
+                executaCmd.Parameters.AddWithValue("@cpf", funcionario.Cpf);
+                executaCmd.Parameters.AddWithValue("@email", funcionario.Email);
+                executaCmd.Parameters.AddWithValue("@senha", funcionario.Senha);
+                executaCmd.Parameters.AddWithValue("@cargo", funcionario.Cargo);
+                executaCmd.Parameters.AddWithValue("@nivel_acesso", funcionario.NivelAcesso);
+                executaCmd.Parameters.AddWithValue("@telefone", funcionario.Telefone);
+                executaCmd.Parameters.AddWithValue("@celular", funcionario.Celular);
+                executaCmd.Parameters.AddWithValue("@cep", funcionario.Cep);
+                executaCmd.Parameters.AddWithValue("@endereco", funcionario.Endereco);
+                executaCmd.Parameters.AddWithValue("@numero", funcionario.Numero);
+                executaCmd.Parameters.AddWithValue("@complemento", funcionario.Complemento);
+                executaCmd.Parameters.AddWithValue("@bairro", funcionario.Bairro);
+                executaCmd.Parameters.AddWithValue("@cidade", funcionario.Cidade);
+                executaCmd.Parameters.AddWithValue("@estado", funcionario.Estado);
+                executaCmd.Parameters.AddWithValue("@id", funcionario.Codigo);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Funcionário alterado com sucesso");
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro.Message);
+            }
+        }
+
+        #endregion
+
+        #region Excluirfuncionario
+
+        public void ExcluirFuncionario(Funcionario funcionario)
+        {
+            try
+            {
+                string sql = @"delete from tb_funcionarios where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("@id", funcionario.Codigo);
+
+                conexao.Open();
+                executaCmd.ExecuteNonQuery();
+
+                MessageBox.Show("Funcionário excluído com sucesso");
+
+                conexao.Close();
+
+            }
+            catch (Exception erro)
+            {
+
+                MessageBox.Show("Aconteceu o erro: " + erro.Message);
+            }
+        }
+
+        #endregion
     }
 }
