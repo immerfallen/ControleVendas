@@ -130,8 +130,9 @@ namespace ControleVendas.VIEW
             FuncionarioDAO dao = new FuncionarioDAO();
             tabelaFuncionario.DataSource = dao.BuscarFuncionarioPorNome(txtPesquisa.Text);
 
-            if (tabelaFuncionario.Rows.Count == 0)
+            if (tabelaFuncionario.Rows.Count == 0 || txtPesquisa.Text == string.Empty)
             {
+                MessageBox.Show("Funcionário não encontrado");
                 tabelaFuncionario.DataSource = dao.ListarFuncionarios();
             }
 
