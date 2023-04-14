@@ -31,7 +31,7 @@ namespace ControleVendas.VIEW
             funcionario.Bairro = txtBairro.Text;
             funcionario.Senha = txtSenha.Text;
             funcionario.NivelAcesso = cbNivel.Text;
-            funcionario.Cargo = cbCargo.Text;
+            funcionario.Cargo = cbUf.Text;
             funcionario.Celular = txtCelular.Text;
             funcionario.Cep = txtCep.Text;
             funcionario.Cidade = txtCidade.Text;
@@ -39,7 +39,7 @@ namespace ControleVendas.VIEW
             funcionario.Cpf = txtCpf.Text;
             funcionario.Email = txtEmail.Text;
             funcionario.Endereco = txtEndereco.Text;
-            funcionario.Estado = cbUf.Text;
+            funcionario.Estado = cbCargo.Text;
             funcionario.Nome = txtNome.Text;
             funcionario.Numero = int.Parse(txtNumero.Text);
             funcionario.Rg = txtRg.Text;
@@ -59,6 +59,13 @@ namespace ControleVendas.VIEW
         private void btnAlterar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmFuncionarios_Load(object sender, EventArgs e)
+        {
+            FuncionarioDAO dao = new FuncionarioDAO();
+
+          tabelaFuncionario.DataSource =  dao.ListarFuncionarios();
         }
     }
 }

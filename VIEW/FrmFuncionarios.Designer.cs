@@ -37,10 +37,10 @@ namespace ControleVendas.VIEW
             this.label19 = new System.Windows.Forms.Label();
             this.cbNivel = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
+            this.cbUf = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.btnPesquisarCep = new System.Windows.Forms.Button();
-            this.cbUf = new System.Windows.Forms.ComboBox();
+            this.cbCargo = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -124,10 +124,10 @@ namespace ControleVendas.VIEW
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.cbNivel);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.cbCargo);
+            this.tabPage1.Controls.Add(this.cbUf);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.btnPesquisarCep);
-            this.tabPage1.Controls.Add(this.cbUf);
+            this.tabPage1.Controls.Add(this.cbCargo);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.txtCidade);
             this.tabPage1.Controls.Add(this.label14);
@@ -205,10 +205,10 @@ namespace ControleVendas.VIEW
             this.label18.TabIndex = 35;
             this.label18.Text = "Nível de Acesso:";
             // 
-            // cbCargo
+            // cbUf
             // 
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Items.AddRange(new object[] {
+            this.cbUf.FormattingEnabled = true;
+            this.cbUf.Items.AddRange(new object[] {
             "AC",
             "AL",
             "AP",
@@ -236,11 +236,11 @@ namespace ControleVendas.VIEW
             "SE",
             "TO",
             "DF"});
-            this.cbCargo.Location = new System.Drawing.Point(73, 339);
-            this.cbCargo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(140, 24);
-            this.cbCargo.TabIndex = 34;
+            this.cbUf.Location = new System.Drawing.Point(73, 339);
+            this.cbUf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbUf.Name = "cbUf";
+            this.cbUf.Size = new System.Drawing.Size(140, 24);
+            this.cbUf.TabIndex = 34;
             // 
             // label17
             // 
@@ -265,18 +265,18 @@ namespace ControleVendas.VIEW
             this.btnPesquisarCep.Text = "Pesquisar";
             this.btnPesquisarCep.UseVisualStyleBackColor = false;
             // 
-            // cbUf
+            // cbCargo
             // 
-            this.cbUf.FormattingEnabled = true;
-            this.cbUf.Items.AddRange(new object[] {
+            this.cbCargo.FormattingEnabled = true;
+            this.cbCargo.Items.AddRange(new object[] {
             "QA",
             "DevOps",
             "Programador"});
-            this.cbUf.Location = new System.Drawing.Point(412, 300);
-            this.cbUf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbUf.Name = "cbUf";
-            this.cbUf.Size = new System.Drawing.Size(140, 24);
-            this.cbUf.TabIndex = 27;
+            this.cbCargo.Location = new System.Drawing.Point(412, 300);
+            this.cbCargo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbCargo.Name = "cbCargo";
+            this.cbCargo.Size = new System.Drawing.Size(140, 24);
+            this.cbCargo.TabIndex = 27;
             // 
             // label15
             // 
@@ -655,7 +655,9 @@ namespace ControleVendas.VIEW
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funcionários";
+            this.Load += new System.EventHandler(this.FrmFuncionarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabClientes.ResumeLayout(false);
@@ -675,7 +677,7 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.TabControl tabClientes;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnPesquisarCep;
-        private System.Windows.Forms.ComboBox cbUf;
+        private System.Windows.Forms.ComboBox cbCargo;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label14;
@@ -710,7 +712,7 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cbNivel;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox cbCargo;
+        private System.Windows.Forms.ComboBox cbUf;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnExcluir;

@@ -4,6 +4,7 @@ using ControleVendas.VIEW;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,6 +61,42 @@ namespace ControleVendas.DAO
             {
 
                 MessageBox.Show("Ocorreu um erro: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+
+        #region ListarFuncionarios
+
+        public DataTable ListarFuncionarios()
+        {
+            try
+            {
+                DataTable tabelaFuncionario = new DataTable();
+
+                string sql = "select * from tb_funcionarios";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+
+                da.Fill(tabelaFuncionario);
+
+                conexao.Close();
+
+                return tabelaFuncionario;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
+                return null;
             }
         }
 
