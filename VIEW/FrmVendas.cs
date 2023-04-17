@@ -16,7 +16,9 @@ namespace ControleVendas.VIEW
     {
 
         Cliente cliente = new Cliente();
-        ClienteDAO dao = new ClienteDAO();
+        ClienteDAO daoCliente = new ClienteDAO();
+        Produto produto = new Produto();
+        ProdutoDAO daoProduto = new ProdutoDAO();
 
         public FrmVendas()
         {
@@ -43,9 +45,20 @@ namespace ControleVendas.VIEW
             if (e.KeyChar == 13)
             {
 
-                this.cliente = this.dao.BuscarClientePorCpf(txtCpf.Text);
+                this.cliente = this.daoCliente.BuscarClientePorCpf(txtCpf.Text);
 
                 txtNome.Text = cliente.Nome;
+            }
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                this.produto = this.daoProduto.BuscarProdutoPorId(int.Parse(txtCodigo.Text));
+
+                txtDescricao.Text = produto.Descricao;
+                txtPreco.Text = produto.Preco.ToString();
             }
         }
     }
