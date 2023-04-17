@@ -244,6 +244,50 @@ namespace ControleVendas.DAO
 
         #endregion
 
+        #region BuscarProdutoPorId
+
+        public Produto BuscarProdutoPorId(int id)
+        {
+            try
+            {
+                var sql = "select * from tb_produtos where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@id", id);
+                conexao.Open();
+
+                MySqlDataReader dr = executaCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    Produto produto = new Produto();
+                    produto.Id = dr.GetInt32("id");
+                    produto.Descricao = dr.GetString("descricao");
+                    produto.Preco = dr.GetDecimal("preco");
+                    return produto;
+                }
+                else
+                {
+                    MessageBox.Show("Produto não encontrado com esse id");
+                    return null;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Aconteceu o erro " + ex);
+                return null;
+            }
+           
+
+            
+
+        }
+
+        #endregion
+
 
     }
 }
