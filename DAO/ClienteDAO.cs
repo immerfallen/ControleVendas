@@ -86,7 +86,7 @@ namespace ControleVendas.DAO
 
                 conexao.Close();
 
-                return tabelaCliente;               
+                return tabelaCliente;
 
             }
             catch (Exception ex)
@@ -137,7 +137,7 @@ namespace ControleVendas.DAO
             {
 
                 MessageBox.Show("Aconteceu o erro: " + erro.Message);
-            }           
+            }
         }
 
         #endregion
@@ -151,7 +151,7 @@ namespace ControleVendas.DAO
                 string sql = @"delete from tb_clientes where id = @id";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
-                
+
                 executaCmd.Parameters.AddWithValue("@id", cliente.Codigo);
 
                 conexao.Open();
@@ -241,6 +241,45 @@ namespace ControleVendas.DAO
                 MessageBox.Show("Erro ao executar o comando sql: " + ex.Message);
                 return null;
             }
+        }
+
+        #endregion
+
+        #region BuscarClientePorCpf
+
+        public Cliente BuscarClientePorCpf(string cpf)
+        {
+            try
+            {
+                Cliente cliente = new Cliente();
+
+                string sql = "select * from tb_clientes where cpf = @cpf";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@cpf", cpf);
+
+                conexao.Open();
+
+                MySqlDataReader dr = executaCmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    cliente.Codigo = dr.GetInt32("id");
+                    cliente.Nome = dr.GetString("nome");
+                    return cliente;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente não encontrado");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Aconteceu o erro " + ex);
+                return null;
+            }
+
+
         }
 
         #endregion

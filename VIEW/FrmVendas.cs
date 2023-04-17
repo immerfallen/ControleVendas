@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleVendas.DAO;
+using ControleVendas.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,10 @@ namespace ControleVendas.VIEW
 {
     public partial class FrmVendas : Form
     {
+
+        Cliente cliente = new Cliente();
+        ClienteDAO dao = new ClienteDAO();
+
         public FrmVendas()
         {
             InitializeComponent();
@@ -27,14 +33,20 @@ namespace ControleVendas.VIEW
 
         }
 
-        private void txtCpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        private void label8_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void txtCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == 13)
+            {
 
+                this.cliente = this.dao.BuscarClientePorCpf(txtCpf.Text);
+
+                txtNome.Text = cliente.Nome;
+            }
         }
     }
 }
