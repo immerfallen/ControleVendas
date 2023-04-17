@@ -32,19 +32,23 @@ namespace ControleVendas.VIEW
         private void FrmProdutos_Load(object sender, EventArgs e)
         {
             FornecedorDAO fornecedorDao = new FornecedorDAO();
+            ProdutoDAO produtoDAO = new ProdutoDAO();
 
             cbForne.DataSource = fornecedorDao.ListarFornecedores();
             cbForne.DisplayMember = "nome";
             cbForne.ValueMember = "id";
+
+            tabelaProduto.DataSource = produtoDAO.ListarProdutos();
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Produto produto = new Produto() {
-            Descricao = txtDescricao.Text,
-            Preco = decimal.Parse(txtPreco.Text),
-            QuantidadeEstoque = int.Parse(txtEstoque.Text),
-            FornecedorId = (int)cbForne.SelectedValue
+            Produto produto = new Produto()
+            {
+                Descricao = txtDescricao.Text,
+                Preco = decimal.Parse(txtPreco.Text),
+                QuantidadeEstoque = int.Parse(txtEstoque.Text),
+                FornecedorId = (int)cbForne.SelectedValue
             };
 
             ProdutoDAO dao = new ProdutoDAO();
@@ -53,7 +57,7 @@ namespace ControleVendas.VIEW
 
             new Helpers().LimparTela(this);
 
-            
+
         }
     }
 }

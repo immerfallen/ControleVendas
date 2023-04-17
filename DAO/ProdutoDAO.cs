@@ -35,7 +35,7 @@ namespace ControleVendas.DAO
                 executaCmd.Parameters.AddWithValue("@preco", produto.Preco);
                 executaCmd.Parameters.AddWithValue("@qtd_estoque", produto.QuantidadeEstoque);
                 executaCmd.Parameters.AddWithValue("@for_id", produto.FornecedorId);
-                
+
 
                 conexao.Open();
                 executaCmd.ExecuteNonQuery();
@@ -63,7 +63,13 @@ namespace ControleVendas.DAO
             {
                 DataTable tabelaProduto = new DataTable();
 
-                string sql = "select * from tb_produtos";
+                string sql = @"select p.id as 'Código', 
+                               p.descricao as 'Descrição', 
+                               p.preco as 'Preço', 
+                               p.qtd_estoque as 'Qtd Estoque', 
+                               f.nome as 'Fornecedor'  
+                               from tb_produtos as p join tb_fornecedores as f 
+                               on (p.for_id = f.id);";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
@@ -104,7 +110,7 @@ namespace ControleVendas.DAO
                 executaCmd.Parameters.AddWithValue("@preco", produto.Preco);
                 executaCmd.Parameters.AddWithValue("@qtd_estoque", produto.QuantidadeEstoque);
                 executaCmd.Parameters.AddWithValue("@for_id", produto.FornecedorId);
-                
+
 
                 conexao.Open();
                 executaCmd.ExecuteNonQuery();
