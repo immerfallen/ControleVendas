@@ -136,6 +136,7 @@ namespace ControleVendas.VIEW
             this.btnNovo.TabIndex = 33;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // tabProdutos
             // 
@@ -301,6 +302,7 @@ namespace ControleVendas.VIEW
             this.btnPesquisar.TabIndex = 32;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -309,6 +311,7 @@ namespace ControleVendas.VIEW
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 22);
             this.txtPesquisa.TabIndex = 5;
+            this.txtPesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisa_KeyPress);
             // 
             // label16
             // 

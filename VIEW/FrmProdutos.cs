@@ -57,6 +57,9 @@ namespace ControleVendas.VIEW
 
             new Helpers().LimparTela(this);
 
+            tabelaProduto.DataSource = dao.ListarProdutos();
+
+
 
         }
 
@@ -101,6 +104,32 @@ namespace ControleVendas.VIEW
             new Helpers().LimparTela(this);
 
             tabelaProduto.DataSource = dao.ListarProdutos();
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            string nome = txtPesquisa.Text;
+
+            ProdutoDAO dao = new ProdutoDAO();
+
+            tabelaProduto.DataSource = dao.BuscarProdutosPorNome(nome);
+
+            if (tabelaProduto.Rows.Count == 0)
+            {
+                tabelaProduto.DataSource = dao.ListarProdutos();
+            }
+        }
+
+        private void txtPesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string nome = "%" + txtPesquisa.Text + "%";
+            ProdutoDAO dao = new ProdutoDAO();
+            tabelaProduto.DataSource = dao.ListarProdutoPorNome(nome);
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            new Helpers().LimparTela(this);
         }
     }
 }

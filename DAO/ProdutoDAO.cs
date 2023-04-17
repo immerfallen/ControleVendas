@@ -160,13 +160,19 @@ namespace ControleVendas.DAO
 
         #region BuscarProdutoPorNome
 
-        public DataTable BuscarProdutoPorNome(string descricao)
+        public DataTable ListarProdutoPorNome(string descricao)
         {
             try
             {
                 DataTable tabelaProduto = new DataTable();
 
-                string sql = "select * from tb_produtos where descricao = @descricao ";
+                string sql = @"select p.id as 'Código', 
+                               p.descricao as 'Descrição', 
+                               p.preco as 'Preço', 
+                               p.qtd_estoque as 'Qtd Estoque', 
+                               f.nome as 'Fornecedor'  
+                               from tb_produtos as p join tb_fornecedores as f 
+                               on (p.for_id = f.id) where p.descricao like @descricao;";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
@@ -197,17 +203,23 @@ namespace ControleVendas.DAO
 
         #region ListarProdutosPorNome
 
-        public DataTable ListarProdutosPorNome(string nome)
+        public DataTable BuscarProdutosPorNome(string descricao)
         {
             try
             {
                 DataTable tabelaProduto = new DataTable();
 
-                string sql = "select * from tb_produtos where descricao like @descricao ";
+                string sql = @"select p.id as 'Código', 
+                               p.descricao as 'Descrição', 
+                               p.preco as 'Preço', 
+                               p.qtd_estoque as 'Qtd Estoque', 
+                               f.nome as 'Fornecedor'  
+                               from tb_produtos as p join tb_fornecedores as f 
+                               on (p.for_id = f.id) where descricao = @descricao;";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
 
-                executaCmd.Parameters.AddWithValue("@descricao", nome);
+                executaCmd.Parameters.AddWithValue("@descricao", descricao);
 
                 conexao.Open();
 
