@@ -53,6 +53,8 @@ namespace ControleVendas.VIEW
             this.label8 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnPagamento = new System.Windows.Forms.Button();
+            this.txtData = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,13 +88,15 @@ namespace ControleVendas.VIEW
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtData);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCpf);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Location = new System.Drawing.Point(12, 122);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(347, 87);
+            this.groupBox1.Size = new System.Drawing.Size(347, 125);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
@@ -110,7 +114,7 @@ namespace ControleVendas.VIEW
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtDescricao);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(12, 226);
+            this.groupBox2.Location = new System.Drawing.Point(12, 272);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(347, 218);
             this.groupBox2.TabIndex = 3;
@@ -119,7 +123,7 @@ namespace ControleVendas.VIEW
             // 
             // txtCpf
             // 
-            this.txtCpf.Location = new System.Drawing.Point(49, 22);
+            this.txtCpf.Location = new System.Drawing.Point(51, 51);
             this.txtCpf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCpf.Mask = "###.###.###.##";
             this.txtCpf.Name = "txtCpf";
@@ -131,7 +135,7 @@ namespace ControleVendas.VIEW
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(7, 29);
+            this.label6.Location = new System.Drawing.Point(9, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(30, 13);
             this.label6.TabIndex = 10;
@@ -139,7 +143,7 @@ namespace ControleVendas.VIEW
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(49, 50);
+            this.txtNome.Location = new System.Drawing.Point(51, 79);
             this.txtNome.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(257, 20);
@@ -149,7 +153,7 @@ namespace ControleVendas.VIEW
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(5, 57);
+            this.label3.Location = new System.Drawing.Point(7, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 12;
@@ -317,6 +321,24 @@ namespace ControleVendas.VIEW
             this.btnPagamento.Text = "Pagamento";
             this.btnPagamento.UseVisualStyleBackColor = false;
             // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(51, 23);
+            this.txtData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(189, 20);
+            this.txtData.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label9.Location = new System.Drawing.Point(7, 30);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(33, 13);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Data:";
+            // 
             // FrmVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,5 +392,7 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnPagamento;
+        private System.Windows.Forms.TextBox txtData;
+        private System.Windows.Forms.Label label9;
     }
 }

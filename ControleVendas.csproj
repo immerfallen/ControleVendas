@@ -90,7 +90,9 @@
     <Compile Include="MODEL\Fornecedor.cs" />
     <Compile Include="MODEL\Funcionario.cs" />
     <Compile Include="MODEL\Helpers.cs" />
+    <Compile Include="MODEL\ItemVenda.cs" />
     <Compile Include="MODEL\Produto.cs" />
+    <Compile Include="MODEL\Venda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VIEW\FrmClientes.cs">
