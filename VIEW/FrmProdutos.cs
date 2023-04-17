@@ -1,4 +1,5 @@
 ﻿using ControleVendas.DAO;
+using ControleVendas.MODEL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,24 @@ namespace ControleVendas.VIEW
             cbForne.DataSource = fornecedorDao.ListarFornecedores();
             cbForne.DisplayMember = "nome";
             cbForne.ValueMember = "id";
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto() {
+            Descricao = txtDescricao.Text,
+            Preco = decimal.Parse(txtPreco.Text),
+            QuantidadeEstoque = int.Parse(txtEstoque.Text),
+            FornecedorId = (int)cbForne.SelectedValue
+            };
+
+            ProdutoDAO dao = new ProdutoDAO();
+
+            dao.CadastrarProduto(produto);
+
+            new Helpers().LimparTela(this);
+
+            
         }
     }
 }

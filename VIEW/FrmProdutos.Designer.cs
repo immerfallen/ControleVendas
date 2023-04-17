@@ -37,6 +37,9 @@ namespace ControleVendas.VIEW
             this.btnNovo = new System.Windows.Forms.Button();
             this.tabProdutos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbForne = new System.Windows.Forms.ComboBox();
+            this.txtPreco = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,9 +52,6 @@ namespace ControleVendas.VIEW
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtPreco = new System.Windows.Forms.TextBox();
-            this.cbForne = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabProdutos.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -94,6 +94,7 @@ namespace ControleVendas.VIEW
             this.btnSalvar.TabIndex = 36;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnExcluir
             // 
@@ -166,6 +167,32 @@ namespace ControleVendas.VIEW
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Pessoais";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label6.Location = new System.Drawing.Point(7, 185);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 16);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Fornecedor:";
+            // 
+            // cbForne
+            // 
+            this.cbForne.FormattingEnabled = true;
+            this.cbForne.Location = new System.Drawing.Point(96, 177);
+            this.cbForne.Name = "cbForne";
+            this.cbForne.Size = new System.Drawing.Size(257, 24);
+            this.cbForne.TabIndex = 8;
+            // 
+            // txtPreco
+            // 
+            this.txtPreco.Location = new System.Drawing.Point(496, 78);
+            this.txtPreco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(257, 22);
+            this.txtPreco.TabIndex = 7;
             // 
             // label5
             // 
@@ -289,32 +316,6 @@ namespace ControleVendas.VIEW
             this.label16.Size = new System.Drawing.Size(48, 16);
             this.label16.TabIndex = 4;
             this.label16.Text = "Nome:";
-            // 
-            // txtPreco
-            // 
-            this.txtPreco.Location = new System.Drawing.Point(496, 78);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(257, 22);
-            this.txtPreco.TabIndex = 7;
-            // 
-            // cbForne
-            // 
-            this.cbForne.FormattingEnabled = true;
-            this.cbForne.Location = new System.Drawing.Point(96, 177);
-            this.cbForne.Name = "cbForne";
-            this.cbForne.Size = new System.Drawing.Size(257, 24);
-            this.cbForne.TabIndex = 8;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label6.Location = new System.Drawing.Point(7, 185);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 16);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Fornecedor:";
             // 
             // FrmProdutos
             // 
