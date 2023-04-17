@@ -285,6 +285,7 @@ namespace ControleVendas.VIEW
             this.tabelaProduto.ReadOnly = true;
             this.tabelaProduto.Size = new System.Drawing.Size(1024, 313);
             this.tabelaProduto.TabIndex = 33;
+            this.tabelaProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaProduto_CellClick);
             // 
             // btnPesquisar
             // 

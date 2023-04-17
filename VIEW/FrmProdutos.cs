@@ -59,5 +59,16 @@ namespace ControleVendas.VIEW
 
 
         }
+
+        private void tabelaProduto_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCodigo.Text = tabelaProduto.CurrentRow.Cells[0].Value.ToString();
+            txtDescricao.Text = tabelaProduto.CurrentRow.Cells[1].Value.ToString();
+            txtPreco.Text = tabelaProduto.CurrentRow.Cells[2].Value.ToString();
+            txtEstoque.Text = tabelaProduto.CurrentRow.Cells[3].Value.ToString();
+            cbForne.Text = tabelaProduto.CurrentRow.Cells[4].Value.ToString();
+
+            tabProdutos.SelectedTab = tabPage1;
+        }
     }
 }
