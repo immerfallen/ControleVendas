@@ -70,5 +70,37 @@ namespace ControleVendas.VIEW
 
             tabProdutos.SelectedTab = tabPage1;
         }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+
+            produto.Descricao = txtDescricao.Text;
+            produto.Preco = decimal.Parse(txtPreco.Text);
+            produto.QuantidadeEstoque = int.Parse(txtEstoque.Text);
+            produto.FornecedorId = int.Parse(cbForne.Text);
+            
+
+            ProdutoDAO dao = new ProdutoDAO();
+            dao.AlterarProduto(produto);
+
+            new Helpers().LimparTela(this);
+
+            tabelaProduto.DataSource = dao.ListarProdutos();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Produto produto = new Produto();
+
+            produto.Id = int.Parse(txtCodigo.Text);
+
+            ProdutoDAO dao = new ProdutoDAO();
+            dao.ExcluirProduto(produto);
+
+            new Helpers().LimparTela(this);
+
+            tabelaProduto.DataSource = dao.ListarProdutos();
+        }
     }
 }
