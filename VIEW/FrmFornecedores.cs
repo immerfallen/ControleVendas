@@ -40,6 +40,9 @@ namespace ControleVendas.VIEW
             dao.CadastrarFornecedor(fornecedor);
 
             tabelaFornecedor.DataSource = dao.ListarFornecedores();
+
+
+            new Helpers().LimparTela(this);
         }
 
         private void FrmFornecedores_Load(object sender, EventArgs e)
@@ -79,6 +82,8 @@ namespace ControleVendas.VIEW
             dao.ExcluirFornecedor(fornecedor);
 
             tabelaFornecedor.DataSource = dao.ListarFornecedores();
+
+            new Helpers().LimparTela(this);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -103,7 +108,10 @@ namespace ControleVendas.VIEW
             dao.AlterarFornecedor(fornecedor);
 
             tabelaFornecedor.DataSource = dao.ListarFornecedores();
-        }
+
+            new Helpers().LimparTela(this);
+        
+    }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
