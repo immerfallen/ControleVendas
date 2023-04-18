@@ -264,11 +264,15 @@ namespace ControleVendas.DAO
                     produto.Id = dr.GetInt32("id");
                     produto.Descricao = dr.GetString("descricao");
                     produto.Preco = dr.GetDecimal("preco");
+
+                    conexao.Close();
+
                     return produto;
                 }
                 else
                 {
                     MessageBox.Show("Produto não encontrado com esse id");
+                    conexao.Close();
                     return null;
                 }
 
@@ -278,6 +282,7 @@ namespace ControleVendas.DAO
             {
 
                 MessageBox.Show("Aconteceu o erro " + ex);
+                conexao.Close();
                 return null;
             }
            

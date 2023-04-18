@@ -20,9 +20,24 @@ namespace ControleVendas.VIEW
         Produto produto = new Produto();
         ProdutoDAO daoProduto = new ProdutoDAO();
 
+        int quantidade;
+        decimal preco;
+        decimal subtotal, total;
+
+        DataTable carrinho = new DataTable();
+
         public FrmVendas()
         {
             InitializeComponent();
+
+            carrinho.Columns.Add("Código", typeof(int));
+            carrinho.Columns.Add("Produto", typeof(string));
+            carrinho.Columns.Add("Quantidade", typeof(int));
+            carrinho.Columns.Add("Preço", typeof(decimal));
+            carrinho.Columns.Add("Bubtotal", typeof(decimal));
+
+            tabelaProdutos.DataSource = carrinho;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -49,6 +64,39 @@ namespace ControleVendas.VIEW
 
                 txtNome.Text = cliente.Nome;
             }
+        }
+
+        private void FrmVendas_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            quantidade = int.Parse(string.IsNullOrWhiteSpace(txtQuantidade.Text) ? "0" : txtQuantidade.Text);
+            preco = decimal.Parse(string.IsNullOrWhiteSpace(txtPreco.Text) ? "0" : txtPreco.Text);
+            subtotal = quantidade * preco;
+            total += subtotal;
+
+            carrinho.Rows.Add(int.Parse(txtCodigo.Text), txtDescricao.Text, quantidade, preco, subtotal);
+
+            txtCodigo.Clear();
+            txtDescricao.Clear();
+            txtQuantidade.Clear();
+            txtPreco.Clear();
+
+            txtCodigo.Focus();
+
+            txtTotal.Text = total.ToString();
+
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            this.produto = this.daoProduto.BuscarProdutoPorId(int.Parse(txtCodigo.Text));
+
+            txtDescricao.Text = produto.Descricao;
+            txtPreco.Text = produto.Preco.ToString();
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)

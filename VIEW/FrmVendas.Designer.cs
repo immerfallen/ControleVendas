@@ -39,8 +39,8 @@ namespace ControleVendas.VIEW
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnRemover = new System.Windows.Forms.Button();
+            this.btnAdicionar = new System.Windows.Forms.Button();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPreco = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@ namespace ControleVendas.VIEW
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(837, 115);
+            this.panel1.Size = new System.Drawing.Size(1049, 115);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -79,7 +79,7 @@ namespace ControleVendas.VIEW
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(315, 48);
+            this.label1.Location = new System.Drawing.Point(421, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 36);
             this.label1.TabIndex = 1;
@@ -160,8 +160,8 @@ namespace ControleVendas.VIEW
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.btnNovo);
+            this.groupBox2.Controls.Add(this.btnRemover);
+            this.groupBox2.Controls.Add(this.btnAdicionar);
             this.groupBox2.Controls.Add(this.txtQuantidade);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtPreco);
@@ -177,31 +177,32 @@ namespace ControleVendas.VIEW
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produto";
             // 
-            // button1
+            // btnRemover
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Highlight;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.Window;
-            this.button1.Location = new System.Drawing.Point(183, 143);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 58);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Remover Item";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnRemover.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnRemover.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemover.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnRemover.Location = new System.Drawing.Point(183, 143);
+            this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRemover.Name = "btnRemover";
+            this.btnRemover.Size = new System.Drawing.Size(147, 58);
+            this.btnRemover.TabIndex = 30;
+            this.btnRemover.Text = "Remover Item";
+            this.btnRemover.UseVisualStyleBackColor = false;
             // 
-            // btnNovo
+            // btnAdicionar
             // 
-            this.btnNovo.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btnNovo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNovo.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnNovo.Location = new System.Drawing.Point(15, 143);
-            this.btnNovo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(145, 58);
-            this.btnNovo.TabIndex = 29;
-            this.btnNovo.Text = "Adicionar Item";
-            this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnAdicionar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnAdicionar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdicionar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnAdicionar.Location = new System.Drawing.Point(15, 143);
+            this.btnAdicionar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdicionar.Name = "btnAdicionar";
+            this.btnAdicionar.Size = new System.Drawing.Size(145, 58);
+            this.btnAdicionar.TabIndex = 29;
+            this.btnAdicionar.Text = "Adicionar Item";
+            this.btnAdicionar.UseVisualStyleBackColor = false;
+            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
             // 
             // txtQuantidade
             // 
@@ -247,6 +248,7 @@ namespace ControleVendas.VIEW
             this.txtCodigo.Size = new System.Drawing.Size(240, 20);
             this.txtCodigo.TabIndex = 9;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // label4
             // 
@@ -278,10 +280,13 @@ namespace ControleVendas.VIEW
             // 
             // tabelaProdutos
             // 
+            this.tabelaProdutos.AllowUserToAddRows = false;
+            this.tabelaProdutos.AllowUserToDeleteRows = false;
             this.tabelaProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tabelaProdutos.Location = new System.Drawing.Point(391, 127);
             this.tabelaProdutos.Name = "tabelaProdutos";
-            this.tabelaProdutos.Size = new System.Drawing.Size(406, 317);
+            this.tabelaProdutos.ReadOnly = true;
+            this.tabelaProdutos.Size = new System.Drawing.Size(630, 317);
             this.tabelaProdutos.TabIndex = 4;
             // 
             // groupBox3
@@ -290,13 +295,13 @@ namespace ControleVendas.VIEW
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Location = new System.Drawing.Point(391, 462);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(406, 87);
+            this.groupBox3.Size = new System.Drawing.Size(630, 87);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(166, 39);
+            this.txtTotal.Location = new System.Drawing.Point(277, 38);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(202, 20);
@@ -307,7 +312,7 @@ namespace ControleVendas.VIEW
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label8.Location = new System.Drawing.Point(61, 36);
+            this.label8.Location = new System.Drawing.Point(172, 35);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 24);
             this.label8.TabIndex = 12;
@@ -319,7 +324,7 @@ namespace ControleVendas.VIEW
             this.btnCancelar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnCancelar.Location = new System.Drawing.Point(612, 566);
+            this.btnCancelar.Location = new System.Drawing.Point(724, 566);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(185, 58);
@@ -332,7 +337,7 @@ namespace ControleVendas.VIEW
             this.btnPagamento.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnPagamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagamento.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnPagamento.Location = new System.Drawing.Point(391, 566);
+            this.btnPagamento.Location = new System.Drawing.Point(482, 566);
             this.btnPagamento.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnPagamento.Name = "btnPagamento";
             this.btnPagamento.Size = new System.Drawing.Size(177, 58);
@@ -344,7 +349,7 @@ namespace ControleVendas.VIEW
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 709);
+            this.ClientSize = new System.Drawing.Size(1049, 709);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnPagamento);
             this.Controls.Add(this.groupBox3);
@@ -354,6 +359,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.panel1);
             this.Name = "FrmVendas";
             this.Text = "Tela de Vendas";
+            this.Load += new System.EventHandler(this.FrmVendas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -385,8 +391,8 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnRemover;
+        private System.Windows.Forms.Button btnAdicionar;
         private System.Windows.Forms.DataGridView tabelaProdutos;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtTotal;
