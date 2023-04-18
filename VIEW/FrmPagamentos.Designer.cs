@@ -160,6 +160,7 @@ namespace ControleVendas.VIEW
             this.btnFinalizar.TabIndex = 33;
             this.btnFinalizar.Text = "Finalizar Venda";
             this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
             // FrmPagamentos
             // 

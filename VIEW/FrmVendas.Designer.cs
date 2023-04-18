@@ -344,6 +344,7 @@ namespace ControleVendas.VIEW
             this.btnPagamento.TabIndex = 31;
             this.btnPagamento.Text = "Pagamento";
             this.btnPagamento.UseVisualStyleBackColor = false;
+            this.btnPagamento.Click += new System.EventHandler(this.btnPagamento_Click);
             // 
             // FrmVendas
             // 
