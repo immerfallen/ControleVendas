@@ -9,11 +9,13 @@ namespace ControleVendas.VIEW
     {
         Cliente Cliente = new Cliente();
         DataTable Carrinho = new DataTable();
+        DateTime DataAtual;
 
-        public FrmPagamentos(Cliente cliente, DataTable carrinho)
+        public FrmPagamentos(Cliente cliente, DataTable carrinho, DateTime dataAtual)
         {
             Cliente = cliente;
             Carrinho = carrinho;
+            DataAtual = dataAtual;
 
             InitializeComponent();
         }

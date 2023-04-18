@@ -22,7 +22,7 @@ namespace ControleVendas.VIEW
 
         int quantidade;
         decimal preco;
-        decimal subtotal, total;
+        decimal subtotal, total;         
 
         DataTable carrinho = new DataTable();
 
@@ -115,11 +115,18 @@ namespace ControleVendas.VIEW
 
         private void btnPagamento_Click(object sender, EventArgs e)
         {
-            FrmPagamentos telaPagamento = new FrmPagamentos(cliente, carrinho);
+            DateTime dataAtual = DateTime.Parse(txtData.Text);
+
+            FrmPagamentos telaPagamento = new FrmPagamentos(cliente, carrinho, dataAtual);
 
             telaPagamento.txtTotal.Text = total.ToString();
 
             telaPagamento.ShowDialog();
+        }
+
+        private void FrmVendas_Load(object sender, EventArgs e)
+        {
+            txtData.Text = DateTime.Now.ToShortDateString();
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
