@@ -113,6 +113,12 @@
     <Compile Include="VIEW\FrmFuncionarios.Designer.cs">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\FrmPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIEW\FrmPagamentos.Designer.cs">
+      <DependentUpon>FrmPagamentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\FrmProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\FrmFuncionarios.resx">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIEW\FrmPagamentos.resx">
+      <DependentUpon>FrmPagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VIEW\FrmProdutos.resx">
       <DependentUpon>FrmProdutos.cs</DependentUpon>
