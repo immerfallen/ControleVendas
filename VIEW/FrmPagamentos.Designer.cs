@@ -40,6 +40,8 @@ namespace ControleVendas.VIEW
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnFinalizar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,7 @@ namespace ControleVendas.VIEW
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Snow;
-            this.label1.Location = new System.Drawing.Point(122, 45);
+            this.label1.Location = new System.Drawing.Point(173, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(307, 36);
             this.label1.TabIndex = 1;
@@ -63,13 +65,13 @@ namespace ControleVendas.VIEW
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 115);
+            this.panel1.Size = new System.Drawing.Size(619, 115);
             this.panel1.TabIndex = 2;
             // 
             // txtDinheiro
             // 
             this.txtDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDinheiro.Location = new System.Drawing.Point(245, 192);
+            this.txtDinheiro.Location = new System.Drawing.Point(245, 123);
             this.txtDinheiro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDinheiro.Name = "txtDinheiro";
             this.txtDinheiro.Size = new System.Drawing.Size(240, 47);
@@ -80,7 +82,7 @@ namespace ControleVendas.VIEW
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label5.Location = new System.Drawing.Point(27, 195);
+            this.label5.Location = new System.Drawing.Point(27, 126);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(195, 39);
             this.label5.TabIndex = 14;
@@ -89,7 +91,7 @@ namespace ControleVendas.VIEW
             // txtCartao
             // 
             this.txtCartao.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCartao.Location = new System.Drawing.Point(245, 265);
+            this.txtCartao.Location = new System.Drawing.Point(245, 196);
             this.txtCartao.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCartao.Name = "txtCartao";
             this.txtCartao.Size = new System.Drawing.Size(240, 47);
@@ -100,7 +102,7 @@ namespace ControleVendas.VIEW
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label2.Location = new System.Drawing.Point(27, 268);
+            this.label2.Location = new System.Drawing.Point(27, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(208, 39);
             this.label2.TabIndex = 16;
@@ -109,7 +111,7 @@ namespace ControleVendas.VIEW
             // txtTroco
             // 
             this.txtTroco.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTroco.Location = new System.Drawing.Point(245, 336);
+            this.txtTroco.Location = new System.Drawing.Point(245, 267);
             this.txtTroco.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTroco.Name = "txtTroco";
             this.txtTroco.ReadOnly = true;
@@ -121,7 +123,7 @@ namespace ControleVendas.VIEW
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label3.Location = new System.Drawing.Point(27, 339);
+            this.label3.Location = new System.Drawing.Point(27, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(116, 39);
             this.label3.TabIndex = 18;
@@ -130,7 +132,7 @@ namespace ControleVendas.VIEW
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(245, 413);
+            this.txtTotal.Location = new System.Drawing.Point(245, 344);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
@@ -142,7 +144,7 @@ namespace ControleVendas.VIEW
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label4.Location = new System.Drawing.Point(27, 416);
+            this.label4.Location = new System.Drawing.Point(27, 347);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 39);
             this.label4.TabIndex = 20;
@@ -153,7 +155,7 @@ namespace ControleVendas.VIEW
             this.btnFinalizar.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinalizar.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnFinalizar.Location = new System.Drawing.Point(34, 486);
+            this.btnFinalizar.Location = new System.Drawing.Point(59, 555);
             this.btnFinalizar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFinalizar.Name = "btnFinalizar";
             this.btnFinalizar.Size = new System.Drawing.Size(451, 58);
@@ -162,11 +164,34 @@ namespace ControleVendas.VIEW
             this.btnFinalizar.UseVisualStyleBackColor = false;
             this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label6.Location = new System.Drawing.Point(27, 423);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 39);
+            this.label6.TabIndex = 34;
+            this.label6.Text = "Obs:";
+            // 
+            // txtObs
+            // 
+            this.txtObs.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObs.Location = new System.Drawing.Point(245, 410);
+            this.txtObs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtObs.Multiline = true;
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(341, 120);
+            this.txtObs.TabIndex = 35;
+            // 
             // FrmPagamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 563);
+            this.ClientSize = new System.Drawing.Size(619, 638);
+            this.Controls.Add(this.txtObs);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnFinalizar);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label4);
@@ -179,6 +204,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.panel1);
             this.Name = "FrmPagamentos";
             this.Text = "FrmPagamentos";
+            this.Load += new System.EventHandler(this.FrmPagamentos_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -199,5 +225,7 @@ namespace ControleVendas.VIEW
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnFinalizar;
         public System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox txtObs;
     }
 }

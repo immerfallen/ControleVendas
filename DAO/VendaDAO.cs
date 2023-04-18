@@ -28,7 +28,7 @@ namespace ControleVendas.DAO
                 string sql = @"insert into tb_vendas (cliente_id, data_venda, total_venda, observacoes) values(@cliente_id, @data_venda, @total_venda, @observacoes  )";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
-                executaCmd.Parameters.AddWithValue("@id_cliente", venda.ClienteId);
+                executaCmd.Parameters.AddWithValue("@cliente_id", venda.ClienteId);
                 executaCmd.Parameters.AddWithValue("@data_venda", venda.DataVenda);
                 executaCmd.Parameters.AddWithValue("@total_venda", venda.TotalVenda);
                 executaCmd.Parameters.AddWithValue("@observacoes", venda.Observacoes);

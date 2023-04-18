@@ -1,4 +1,5 @@
-﻿using ControleVendas.MODEL;
+﻿using ControleVendas.DAO;
+using ControleVendas.MODEL;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -22,7 +23,52 @@ namespace ControleVendas.VIEW
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                decimal valorDinheiro, valorCartao, troco, totalPago, total;
 
+                valorDinheiro = decimal.Parse(txtDinheiro.Text);
+                valorCartao = decimal.Parse(txtCartao.Text);
+                total = decimal.Parse(txtTotal.Text);
+
+                totalPago = valorDinheiro + valorCartao;
+
+                if(totalPago < total)
+                {
+                    MessageBox.Show("O total pago é menor que o valor da venda");
+                }
+                else
+                {
+                    troco = totalPago - total;
+                    txtTroco.Text = troco.ToString();
+                }
+
+                Venda venda = new Venda();
+                venda.ClienteId = Cliente.Codigo;
+                venda.DataVenda = DataAtual;
+                venda.TotalVenda = total;
+                venda.Observacoes = txtObs.Text;
+
+                VendaDAO vendaDAO = new VendaDAO();
+
+                vendaDAO.CadastrarVenda(venda);
+
+                
+               
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocorreu o erro " + ex.Message);
+            }
+
+        }
+
+        private void FrmPagamentos_Load(object sender, EventArgs e)
+        {
+            txtTroco.Text = "0,00";
+            txtDinheiro.Text = "0,00";
+            txtCartao.Text = "0,00";
         }
     }
 }
