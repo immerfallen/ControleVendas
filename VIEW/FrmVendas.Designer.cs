@@ -189,6 +189,7 @@ namespace ControleVendas.VIEW
             this.btnRemover.TabIndex = 30;
             this.btnRemover.Text = "Remover Item";
             this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnAdicionar
             // 
@@ -248,7 +249,6 @@ namespace ControleVendas.VIEW
             this.txtCodigo.Size = new System.Drawing.Size(240, 20);
             this.txtCodigo.TabIndex = 9;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
-            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // label4
             // 

@@ -89,14 +89,25 @@ namespace ControleVendas.VIEW
 
             txtTotal.Text = total.ToString();
 
-        }
+        }        
 
-        private void txtCodigo_Leave(object sender, EventArgs e)
+        private void btnRemover_Click(object sender, EventArgs e)
         {
-            this.produto = this.daoProduto.BuscarProdutoPorId(int.Parse(txtCodigo.Text));
+            decimal subproduto = decimal.Parse(tabelaProdutos.CurrentRow.Cells[4].Value.ToString());
 
-            txtDescricao.Text = produto.Descricao;
-            txtPreco.Text = produto.Preco.ToString();
+            int indice = tabelaProdutos.CurrentRow.Index;
+
+            DataRow linha = carrinho.Rows[indice];
+
+            carrinho.Rows.Remove(linha);
+
+            carrinho.AcceptChanges();
+
+            total -= subproduto;
+
+            txtTotal.Text = total.ToString();
+
+            MessageBox.Show("Item removido com sucesso do carrinho");
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
