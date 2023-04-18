@@ -50,5 +50,42 @@ namespace ControleVendas.DAO
 
         #endregion
 
+        #region RetornaIdUltimaVenda
+
+        public int RetornaIdUltimaVenda()
+        {
+            try
+            {
+                int idVenda = 0;
+
+                string sql = @"select max(id) id from tb_vendas";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                conexao.Open();
+
+                MySqlDataReader dr = executaCmd.ExecuteReader();
+
+                if (dr.Read())
+                {                    
+                    idVenda = dr.GetInt32("id");
+                }
+                conexao.Close();
+
+                return idVenda;              
+               
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Aconteceu o erro " + ex.Message);
+                conexao.Close();
+                return 0;
+            }
+        }
+
+        #endregion
+
     }
 }
