@@ -23,7 +23,7 @@ namespace ControleVendas.DAO
         {
             try
             {
-                string sql = @"insert into tb_itensvenda (venda_id, produto_id, qtd, subtotal) values(@venda_id, @produto_id, @qtd, @subtotal  )";
+                string sql = @"insert into tb_itensvendas (venda_id, produto_id, qtd, subtotal) values(@venda_id, @produto_id, @qtd, @subtotal  )";
 
                 MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
                 executaCmd.Parameters.AddWithValue("@venda_id", itemVenda.VendaId);
@@ -32,9 +32,7 @@ namespace ControleVendas.DAO
                 executaCmd.Parameters.AddWithValue("@subtotal", itemVenda.SubTotal);
 
                 conexao.Open();
-                executaCmd.ExecuteNonQuery();
-
-                MessageBox.Show("Item cadastrado com sucesso");
+                executaCmd.ExecuteNonQuery();               
 
                 conexao.Close();
             }

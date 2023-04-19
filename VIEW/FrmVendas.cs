@@ -34,7 +34,7 @@ namespace ControleVendas.VIEW
             carrinho.Columns.Add("Produto", typeof(string));
             carrinho.Columns.Add("Quantidade", typeof(int));
             carrinho.Columns.Add("Preço", typeof(decimal));
-            carrinho.Columns.Add("Bubtotal", typeof(decimal));
+            carrinho.Columns.Add("Subtotal", typeof(decimal));
 
             tabelaProdutos.DataSource = carrinho;
 
@@ -135,8 +135,13 @@ namespace ControleVendas.VIEW
             {
                 this.produto = this.daoProduto.BuscarProdutoPorId(int.Parse(txtCodigo.Text));
 
-                txtDescricao.Text = produto.Descricao;
-                txtPreco.Text = produto.Preco.ToString();
+                if(produto != null)
+                {
+                    txtDescricao.Text = produto.Descricao;
+                    txtPreco.Text = produto.Preco.ToString();
+                }
+
+                
             }
         }
     }

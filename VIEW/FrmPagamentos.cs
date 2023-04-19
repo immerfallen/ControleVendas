@@ -54,6 +54,24 @@ namespace ControleVendas.VIEW
                 vendaDAO.CadastrarVenda(venda);
 
                 
+
+                foreach (DataRow linha in Carrinho.Rows)
+                {
+                    ItemVenda item = new ItemVenda();
+                    item.VendaId = vendaDAO.RetornaIdUltimaVenda();
+                    item.ProdutoId = int.Parse(linha["Código"].ToString());
+                    item.Quantidade = int.Parse(linha["Quantidade"].ToString());
+                    item.SubTotal = decimal.Parse(linha["Subtotal"].ToString());
+
+                    ItemVendaDAO itemDAO = new ItemVendaDAO();
+                    itemDAO.CadastrarItemVenda(item);
+                }
+
+
+                MessageBox.Show("Venda finalizada com sucesso");
+
+                this.Close();
+                
                
             }
             catch (Exception ex)
