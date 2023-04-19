@@ -203,6 +203,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Name = "FrmPagamentos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPagamentos";
             this.Load += new System.EventHandler(this.FrmPagamentos_Load);
             this.panel1.ResumeLayout(false);

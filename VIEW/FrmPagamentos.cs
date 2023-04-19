@@ -70,7 +70,9 @@ namespace ControleVendas.VIEW
 
                 MessageBox.Show("Venda finalizada com sucesso");
 
-                this.Close();
+                this.Dispose();
+
+                new FrmVendas().ShowDialog();
                 
                
             }

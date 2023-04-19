@@ -22,7 +22,7 @@ namespace ControleVendas.VIEW
 
         int quantidade;
         decimal preco;
-        decimal subtotal, total;         
+        decimal subtotal, total;
 
         DataTable carrinho = new DataTable();
 
@@ -59,12 +59,21 @@ namespace ControleVendas.VIEW
         {
             if (e.KeyChar == 13)
             {
-
+                e.Handled = true;
                 this.cliente = this.daoCliente.BuscarClientePorCpf(txtCpf.Text);
 
-                txtNome.Text = cliente.Nome;
+                if (cliente != null)
+                {
+
+                    txtNome.Text = cliente.Nome;
+                }
+                else
+                {
+                    txtCpf.Clear();
+                    txtCpf.Focus();
+                }
             }
-        }       
+        }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -92,7 +101,7 @@ namespace ControleVendas.VIEW
 
                 MessageBox.Show("Digite o código do produto!");
             }
-        }        
+        }
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
@@ -133,15 +142,23 @@ namespace ControleVendas.VIEW
         {
             if (e.KeyChar == 13)
             {
+                e.Handled = true;
                 this.produto = this.daoProduto.BuscarProdutoPorId(int.Parse(txtCodigo.Text));
 
-                if(produto != null)
+                if (produto != null)
                 {
                     txtDescricao.Text = produto.Descricao;
                     txtPreco.Text = produto.Preco.ToString();
                 }
+                else
+                {
+                    txtDescricao.Clear();
+                    txtPreco.Clear();
+                    txtCodigo.Clear();
+                    txtCodigo.Focus();
+                }
 
-                
+
             }
         }
     }

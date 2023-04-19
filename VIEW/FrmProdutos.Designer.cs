@@ -335,6 +335,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.tabProdutos);
             this.Controls.Add(this.panel1);
             this.Name = "FrmProdutos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Produtos";
             this.Load += new System.EventHandler(this.FrmProdutos_Load);
             this.panel1.ResumeLayout(false);

@@ -359,6 +359,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela de Vendas";
             this.Load += new System.EventHandler(this.FrmVendas_Load);
             this.panel1.ResumeLayout(false);

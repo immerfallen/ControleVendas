@@ -558,6 +558,7 @@ namespace ControleVendas.VIEW
             this.Controls.Add(this.tabForncedores);
             this.Controls.Add(this.panel1);
             this.Name = "FrmFornecedores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmFornecedores";
             this.Load += new System.EventHandler(this.FrmFornecedores_Load);
             this.tabForncedores.ResumeLayout(false);
