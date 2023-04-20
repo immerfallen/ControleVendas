@@ -27,6 +27,10 @@ namespace ControleVendas.VIEW
             {
                 decimal valorDinheiro, valorCartao, troco, totalPago, total;
 
+                int quantidadeEstoque, quantidadeComprada, estoqueAtualizado;
+
+                ProdutoDAO produtoDAO = new ProdutoDAO();
+
                 valorDinheiro = decimal.Parse(txtDinheiro.Text);
                 valorCartao = decimal.Parse(txtCartao.Text);
                 total = decimal.Parse(txtTotal.Text);
@@ -62,6 +66,12 @@ namespace ControleVendas.VIEW
                     item.ProdutoId = int.Parse(linha["Código"].ToString());
                     item.Quantidade = int.Parse(linha["Quantidade"].ToString());
                     item.SubTotal = decimal.Parse(linha["Subtotal"].ToString());
+
+                    quantidadeEstoque = produtoDAO.RetornaEstoqueAtual(item.ProdutoId);
+                    quantidadeComprada = item.Quantidade;
+                    estoqueAtualizado = quantidadeEstoque - quantidadeComprada;
+
+                    produtoDAO.BaixaEstoque(item.ProdutoId, estoqueAtualizado);
 
                     ItemVendaDAO itemDAO = new ItemVendaDAO();
                     itemDAO.CadastrarItemVenda(item);

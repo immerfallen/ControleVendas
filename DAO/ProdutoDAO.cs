@@ -290,7 +290,7 @@ namespace ControleVendas.DAO
 
         #region BaixaEstoque
 
-        private void BaixaEstoque(int idProduto, int qtdEstoque)
+        public void BaixaEstoque(int idProduto, int qtdEstoque)
         {
             try
             {
