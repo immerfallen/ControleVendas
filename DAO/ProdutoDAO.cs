@@ -284,11 +284,73 @@ namespace ControleVendas.DAO
                 MessageBox.Show("Aconteceu o erro " + ex);
                 conexao.Close();
                 return null;
+            }       
+        }
+        #endregion
+
+        #region BaixaEstoque
+
+        private void BaixaEstoque(int idProduto, int qtdEstoque)
+        {
+            try
+            {
+                string sql = @"update tb_produtos set qtd_estoque = @qtd where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("@id", idProduto);
+                executaCmd.Parameters.AddWithValue("@qtd", qtdEstoque);
+
+                conexao.Open();
+
+                executaCmd.ExecuteNonQuery();
+
+                conexao.Close();
+
             }
-           
+            catch (Exception ex)
+            {
 
-            
+                MessageBox.Show("Aconteceu o erro " + ex.Message);
+            }
+        }
 
+
+        #endregion
+
+        #region RetornaEstoqueAtual
+
+        public int RetornaEstoqueAtual(int idProduto)
+        {
+            try
+            {
+                int qtdEstoque = 0;
+
+                string sql = @"select qtd_estoque from tb_produtos where id = @id";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+                executaCmd.Parameters.AddWithValue("@id", idProduto);
+
+                conexao.Open();
+
+                MySqlDataReader dr = executaCmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    qtdEstoque = dr.GetInt32("qtd_estoque");
+                    conexao.Close();
+                }
+
+                return qtdEstoque;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Aconteceu o erro " + ex.Message);
+                conexao.Close();
+                return 0;
+            }
         }
 
         #endregion
