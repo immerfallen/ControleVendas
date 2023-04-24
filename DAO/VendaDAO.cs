@@ -3,6 +3,7 @@ using ControleVendas.MODEL;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,45 @@ namespace ControleVendas.DAO
                 MessageBox.Show("Aconteceu o erro " + ex.Message);
                 conexao.Close();
                 return 0;
+            }
+        }
+        #endregion
+
+        #region HistoricoDeVenda
+
+        private DataTable  HistoricoDeVenda(DateTime dataInicio, DateTime dataFim )
+        {
+            try
+            {
+                DataTable tabelaHistorico = new DataTable();
+
+                string sql = @"select v.id as 'Código',
+                            v.data_venda as 'Data da venda', 
+                            c.nome as 'Cliente', 
+                            v.total_venda as 'Total da venda', 
+                            v.observacoes as 'Obs' 
+                            from tb_vendas as v 
+                            join tb_clientes as c 
+                            on (v.cliente_id = c.id)
+                            where v.data_venda between @dataInicio and @dataFim";
+
+                MySqlCommand executaCmd = new MySqlCommand(sql, conexao);
+
+                executaCmd.Parameters.AddWithValue("dataInicio", dataInicio);
+                executaCmd.Parameters.AddWithValue("dataFim", dataFim);
+
+                conexao.Open();
+                MySqlDataAdapter da = new MySqlDataAdapter(executaCmd);
+                da.Fill(tabelaHistorico);
+
+                return tabelaHistorico;
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocorreu o erro " + ex.Message);
+                return null;
             }
         }
 
